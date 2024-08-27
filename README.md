@@ -43,7 +43,129 @@ pip install -r requirements.txt
 streamlit run main.py
 ```
 
-## Output viz
+## Output
+```json
+{
+  "ROOT": {
+    "portfolio": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "series": {
+          "type": "string"
+        },
+        "fees": {
+          "type": "object",
+          "properties": {
+            "salesCharges": {
+              "type": "string"
+            },
+            "fundExpenses": {
+              "type": "object",
+              "properties": {
+                "managementExpenseRatio": {
+                  "type": "string"
+                },
+                "tradingExpenseRatio": {
+                  "type": "string"
+                },
+                "totalExpenses": {
+                  "type": "string"
+                }
+              }
+            },
+            "trailingCommissions": {
+              "type": "string"
+            }
+          }
+        },
+        "withdrawalRights": {
+          "type": "object",
+          "properties": {
+            "timeLimit": {
+              "type": "string"
+            },
+            "conditions": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "contactInformation": {
+          "type": "object",
+          "properties": {
+            "companyName": {
+              "type": "string"
+            },
+            "address": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            },
+            "website": {
+              "type": "string"
+            }
+          }
+        },
+        "yearByYearReturns": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "year": {
+                "type": "string"
+              },
+              "return": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "bestWorstReturns": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "return": {
+                "type": "string"
+              },
+              "date": {
+                "type": "string"
+              },
+              "investmentValue": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "averageReturn": {
+          "type": "string"
+        },
+        "targetInvestors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "taxInformation": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
+```
 <p align="center">
   <img src="https://i.ibb.co/7RPpsjV/temp.png" alt="example">
 </p>
