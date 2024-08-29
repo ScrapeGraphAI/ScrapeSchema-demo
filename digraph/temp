@@ -1,0 +1,48 @@
+// Portfolio Structure
+digraph {
+	ROOT [label="ROOT
+portfolio: object"]
+	portfolio [label="portfolio
+name: string
+series: string
+fees: object
+withdrawalRights: object
+contactInformation: object
+yearByYearReturns: object[]
+bestWorstReturns: object[]
+averageReturn: string
+targetInvestors: string[]
+taxInformation: string"]
+	ROOT -> portfolio
+	fees [label="fees
+salesCharges: string
+fundExpenses: object
+trailingCommissions: string"]
+	withdrawalRights [label="withdrawalRights
+timeLimit: string
+conditions: string[]"]
+	contactInformation [label="contactInformation
+companyName: string
+address: string
+phone: string
+email: string
+website: string"]
+	yearByYearReturns [label="yearByYearReturns
+year: string
+return: string"]
+	bestWorstReturns [label="bestWorstReturns
+type: string
+return: string
+date: string
+investmentValue: string"]
+	portfolio -> fees
+	portfolio -> withdrawalRights
+	portfolio -> contactInformation
+	portfolio -> yearByYearReturns
+	portfolio -> bestWorstReturns
+	fundExpenses [label="fundExpenses
+managementExpenseRatio: string
+tradingExpenseRatio: string
+totalExpenses: string"]
+	fees -> fundExpenses
+}
