@@ -2,15 +2,7 @@ import streamlit as st
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_core.prompts import PromptTemplate
 from langchain_openai import ChatOpenAI
-import os
 from graphviz import Digraph
-from dotenv import load_dotenv
-
-load_dotenv()
-
-# Initialize the OpenAI API key and model
-api_key = os.getenv("OPENAI_API_KEY")
-llm = ChatOpenAI(api_key=api_key, model="gpt-4o-2024-08-06")
 
 # Function to load PDF and extract pages
 def load_pdf(file_path):
@@ -75,7 +67,16 @@ prompt_pydantic = PromptTemplate(
 
 # Streamlit App
 def main():
-    st.title("PDF to entities schema")
+    st.title("PDF to Entities Schema")
+
+    api_key = st.text_input("Enter your OpenAI API Key", type="password")
+    
+    if not api_key:
+        st.warning("Please enter your OpenAI API Key.")
+        return
+
+    # Initialize the OpenAI API key and model
+    llm = ChatOpenAI(api_key=api_key, model="gpt-4o-2024-08-06")
 
     uploaded_file = st.file_uploader("Choose a PDF file", type="pdf")
 
@@ -91,18 +92,15 @@ def main():
 
         exec(response.content[9:-3])
 
-
         chain_pydantic = prompt_pydantic | llm
 
         response_pydantic = chain_pydantic.invoke({"content": response.content})
 
         if response and response_pydantic:
-
             st.image('./digraph/temp.png', use_column_width=True)
 
-            st.write("Generated Json schema:")
-            st.code(response_pydantic.content, language="python",line_numbers=True)
-
+            st.write("Generated JSON schema:")
+            st.code(response_pydantic.content, language="python", line_numbers=True)
 
 if __name__ == "__main__":
     main()
