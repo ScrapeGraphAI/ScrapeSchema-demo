@@ -8,6 +8,9 @@ ScrapeSchema is a Python-based tool designed to extract entities and their assoc
 - **Schema Generation**: Constructs a schema based and structure of the extracted entities.
 - **Visualization**: Leverages Graphviz to visualize the extracted schema.
 
+## Official streamlit demo:
+
+[![My Skills](https://skillicons.dev/icons?i=react)](https://scrapeschema.streamlit.app)
 ## Quick Start
 
 ### Prerequisites
